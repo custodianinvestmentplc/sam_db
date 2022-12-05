@@ -1,0 +1,8 @@
+CREATE TABLE [dbo].[USER_ROLE] (
+    [ROW_ID] INT           IDENTITY (1, 1) NOT NULL,
+    [ROLE]   VARCHAR (150) NOT NULL
+);
+
+
+GO
+

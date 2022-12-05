@@ -1,0 +1,13 @@
+CREATE TABLE [dbo].[TQ_AGENT_LIST] (
+    [ROW_ID]       INT           IDENTITY (1, 1) NOT NULL,
+    [AGN_CODE]     VARCHAR (50)  NULL,
+    [AGN_SHT_DESC] VARCHAR (50)  NULL,
+    [AGN_NAME]     VARCHAR (150) NULL,
+    [AGN_STATUS]   VARCHAR (50)  NULL,
+    [AGN_ACT_CODE] INT           NULL,
+    PRIMARY KEY CLUSTERED ([ROW_ID] ASC)
+);
+
+
+GO
+

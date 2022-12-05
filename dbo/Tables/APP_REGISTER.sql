@@ -1,0 +1,12 @@
+CREATE TABLE [dbo].[APP_REGISTER] (
+    [ROW_ID]            INT           IDENTITY (1, 1) NOT NULL,
+    [APP_TITLE]         VARCHAR (50)  NOT NULL,
+    [ROLE_ID]           INT           NOT NULL,
+    [CONTROLLER_NAME]   VARCHAR (150) NOT NULL,
+    [CONTROLLER_ACTION] VARCHAR (150) NOT NULL,
+    PRIMARY KEY CLUSTERED ([ROW_ID] ASC)
+);
+
+
+GO
+

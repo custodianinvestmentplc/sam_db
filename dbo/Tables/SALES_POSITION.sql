@@ -1,0 +1,9 @@
+CREATE TABLE [dbo].[SALES_POSITION] (
+    [SP_CODE]       VARCHAR (50)  NULL,
+    [SP_CODE_DESC]  VARCHAR (150) NULL,
+    [SP_CODE_ORDER] INT           NULL
+);
+
+
+GO
+

@@ -1,0 +1,20 @@
+CREATE TYPE [dbo].[UDT_CPC_FORM_TRAD_MISC] AS TABLE (
+    [CPF_CPP_REF_NBR]         VARCHAR (50)   NULL,
+    [CPF_PPCT_TYPE_CODE]      VARCHAR (50)   NULL,
+    [SICK_OR_MEDICATION]      VARCHAR (50)   NULL,
+    [MEDICATION_DETAILS]      VARCHAR (4000) NULL,
+    [IS_PREGNANT]             VARCHAR (50)   NULL,
+    [EXPECTED_DELIVERY_MONTH] VARCHAR (50)   NULL,
+    [SMOKED]                  VARCHAR (50)   NULL,
+    [TUBERCULOSIS]            VARCHAR (50)   NULL,
+    [EPILEPSY]                VARCHAR (50)   NULL,
+    [HEART_DISEASE]           VARCHAR (50)   NULL,
+    [INSANITY]                VARCHAR (50)   NULL,
+    [DIABETES]                VARCHAR (50)   NULL,
+    [HYPERTENSION]            VARCHAR (50)   NULL,
+    [OTHER_ILLNESS]           VARCHAR (50)   NULL,
+    [OTHER_ILLNESS_DETAILS]   VARCHAR (4000) NULL);
+
+
+GO
+

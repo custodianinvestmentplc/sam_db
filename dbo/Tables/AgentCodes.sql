@@ -1,0 +1,10 @@
+CREATE TABLE [dbo].[AgentCodes] (
+    [AGN_CODE]     VARCHAR (50)  NULL,
+    [AGN_SHT_DESC] VARCHAR (50)  NULL,
+    [AGN_NAME]     VARCHAR (100) NULL,
+    [AGN_STATUS]   VARCHAR (50)  NULL
+);
+
+
+GO
+

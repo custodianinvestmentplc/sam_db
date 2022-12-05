@@ -1,0 +1,8 @@
+CREATE TABLE [dbo].[COMS_ERROR] (
+    [AGN_CODE] VARCHAR (50)   NULL,
+    [ERR_MSG]  VARCHAR (4000) NULL
+);
+
+
+GO
+

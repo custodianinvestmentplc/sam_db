@@ -1,0 +1,11 @@
+CREATE TABLE [dbo].[USER_REGISTER] (
+    [ROW_ID]       INT           IDENTITY (1, 1) NOT NULL,
+    [USER_EMAIL]   VARCHAR (150) NOT NULL,
+    [DISPLAY_NAME] VARCHAR (150) NULL,
+    [ROLE_ID]      INT           NOT NULL,
+    PRIMARY KEY CLUSTERED ([ROW_ID] ASC)
+);
+
+
+GO
+

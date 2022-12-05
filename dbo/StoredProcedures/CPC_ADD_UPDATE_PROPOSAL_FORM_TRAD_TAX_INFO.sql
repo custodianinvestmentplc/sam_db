@@ -1,0 +1,70 @@
+create procedure dbo.CPC_ADD_UPDATE_PROPOSAL_FORM_TRAD_TAX_INFO(
+	@caller varchar(150),
+	@data dbo.UDT_CPC_FORM_TRAD_TAX_INFO readonly
+)
+as
+begin
+	set nocount on;
+
+	merge dbo.CPC_PROPOSAL_FORM_TRAD_TAX_DETAILS as trg
+	using @data as src on (
+		trg.CPF_CPP_REF_NBR = src.CPF_CPP_REF_NBR
+		and trg.CPF_PPCT_TYPE_CODE = src.CPF_PPCT_TYPE_CODE
+	)
+	when matched and (
+		trg.TIN <> src.TIN
+		or trg.EMPLOYER_NAME <> src.EMPLOYER_NAME
+		or trg.EMPLOYER_ADDRESS <> src.EMPLOYER_ADDRESS
+		or trg.EMPLOYER_EMAIL <> src.EMPLOYER_EMAIL
+		or trg.EMPLOYER_PHONE_NBR <> src.EMPLOYER_PHONE_NBR
+		or trg.CUST_RELIGION <> src.CUST_RELIGION
+		or trg.CUST_OCCUPATION <> src.CUST_OCCUPATION
+		or trg.CUST_SOURCE_OF_FUNDS <> src.CUST_SOURCE_OF_FUNDS
+	)
+	then update set
+		TIN = src.TIN,
+		EMPLOYER_NAME = src.EMPLOYER_NAME,
+		EMPLOYER_ADDRESS = src.EMPLOYER_ADDRESS,
+		EMPLOYER_EMAIL = src.EMPLOYER_EMAIL,
+		EMPLOYER_PHONE_NBR = src.EMPLOYER_PHONE_NBR,
+		CUST_RELIGION = src.CUST_RELIGION,
+		CUST_OCCUPATION = src.CUST_OCCUPATION,
+		CUST_SOURCE_OF_FUNDS = src.CUST_SOURCE_OF_FUNDS,
+		LAST_MODIFIED_DATE = getdate(),
+		LAST_MODIFIED_USER = @caller
+	when not matched then insert (
+		CPF_CPP_REF_NBR,
+		CPF_PPCT_TYPE_CODE,
+		TIN,
+		EMPLOYER_NAME,
+		EMPLOYER_ADDRESS,
+		EMPLOYER_EMAIL,
+		EMPLOYER_PHONE_NBR,
+		CUST_RELIGION,
+		CUST_OCCUPATION,
+		CUST_SOURCE_OF_FUNDS,
+		CREATE_DATE,
+		CREATE_USER,
+		LAST_MODIFIED_DATE,
+		LAST_MODIFIED_USER
+	)
+	values (
+		src.CPF_CPP_REF_NBR,
+		src.CPF_PPCT_TYPE_CODE,
+		src.TIN,
+		src.EMPLOYER_NAME,
+		src.EMPLOYER_ADDRESS,
+		src.EMPLOYER_EMAIL,
+		src.EMPLOYER_PHONE_NBR,
+		src.CUST_RELIGION,
+		src.CUST_OCCUPATION,
+		src.CUST_SOURCE_OF_FUNDS,
+		getdate(),
+		@caller,
+		getdate(),
+		@caller
+	);
+end
+
+GO
+

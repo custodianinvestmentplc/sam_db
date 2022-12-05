@@ -1,0 +1,10 @@
+CREATE TABLE [dbo].[ACCOUNT_TYPES] (
+    [ROW_ID]           INT           IDENTITY (1, 1) NOT NULL,
+    [ACT_CODE]         INT           NOT NULL,
+    [ACT_ACCOUNT_TYPE] VARCHAR (150) NULL,
+    PRIMARY KEY CLUSTERED ([ROW_ID] ASC)
+);
+
+
+GO
+

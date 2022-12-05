@@ -1,0 +1,6 @@
+CREATE SCHEMA [COMMS_PKG]
+    AUTHORIZATION [dbo];
+
+
+GO
+
